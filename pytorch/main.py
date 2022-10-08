@@ -23,7 +23,7 @@ with torch.inference_mode():
         model.forward(input_ids)
 
     timings = []
-    for _ in range(100):
+    for _ in range(1000):
         t1 = time.time()
         model.forward(input_ids)
         t2 = time.time()

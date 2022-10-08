@@ -5,6 +5,10 @@ import onnxruntime as ort
 import torch
 
 
+# TODO:
+# - There seems to be more details around passing in inputs.
+# - https://onnxruntime.ai/docs/api/python/api_summary.html#load-and-run-a-model
+
 session = ort.InferenceSession("model.onnx", providers=["CUDAExecutionProvider"])
 
 batch_size = 1
@@ -17,7 +21,7 @@ for _ in range(10):
     outputs = session.run(None, inputs)
 
 timings = []
-for _ in range(100):
+for _ in range(1000):
     t1 = time.time()
     outputs = session.run(None, inputs)
     t2 = time.time()
