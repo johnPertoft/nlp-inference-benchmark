@@ -20,3 +20,4 @@ This repo holds benchmarks for some deep learning inference frameworks for our s
   to manually call the forward pass multiple times?
 - For the onnx models, is it a problem not having access to gpu when exporting?
   (since we run the export during docker build)
+- Be consistent with cuda/cudnn versions etc
