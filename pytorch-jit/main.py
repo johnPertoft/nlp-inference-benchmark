@@ -18,12 +18,6 @@ input_ids = torch.ones((batch_size, sequence_length), dtype=torch.int32)
 model = model.to("cuda")
 input_ids = input_ids.to("cuda")
 
-
-def forward(inputs):
-    outputs = model.forward(inputs)
-    return outputs.hidden_states
-
-
 model = torch.jit.trace(model, (input_ids,), strict=False)
 
 with torch.inference_mode():
