@@ -1,5 +1,9 @@
-# nlp-inference-benchmark
+# Inference benchmarks/playground
 This repo holds benchmarks for some deep learning inference frameworks for our specific workload.
+
+
+## Results
+TODO
 
 ## TODO
 - Define some delimitations, e.g. only running on 3080, only using T5 etc
@@ -21,3 +25,5 @@ This repo holds benchmarks for some deep learning inference frameworks for our s
 - For the onnx models, is it a problem not having access to gpu when exporting?
   (since we run the export during docker build)
 - Be consistent with cuda/cudnn versions etc
+- Should verify correctness in output?
+- For onnx, we need to use a tool to perform optimizations of the graph I think.
