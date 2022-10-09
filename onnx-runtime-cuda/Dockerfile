@@ -1,13 +1,3 @@
-# FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
-# RUN pip install \
-#     onnx \
-#     onnxruntime-gpu \
-#     transformers
-# COPY main.py main.py
-# COPY export.py export.py
-# RUN python export.py
-# ENTRYPOINT [ "python", "main.py" ]
-
 FROM nvcr.io/nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
 ENV PATH /usr/local/nvidia/bin:/usr/local/cuda/bin:${PATH}
 RUN apt-get update && apt-get install -y \
@@ -17,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     python3-pip \
     python3-venv \
-    python-is-python3 
+    python-is-python3
 RUN pip install \
     onnx \
     onnxruntime-gpu \
