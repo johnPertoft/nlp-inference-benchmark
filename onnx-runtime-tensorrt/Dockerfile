@@ -4,6 +4,7 @@ FROM nvcr.io/nvidia/tensorrt:22.09-py3
 RUN pip install \
     onnx \
     onnxruntime-gpu \
+    onnxsim \
     torch \
     transformers
 COPY export.py export.py

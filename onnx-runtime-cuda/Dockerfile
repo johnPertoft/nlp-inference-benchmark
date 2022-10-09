@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install \
     onnx \
     onnxruntime-gpu \
+    onnxsim \
     torch \
     transformers
 COPY export.py export.py

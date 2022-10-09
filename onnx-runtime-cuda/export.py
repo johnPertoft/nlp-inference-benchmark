@@ -1,3 +1,5 @@
+import onnx
+import onnxsim
 import torch
 from transformers import BertConfig
 from transformers import BertModel
@@ -17,4 +19,20 @@ sequence_length = 512
 input_ids = torch.ones((batch_size, sequence_length), dtype=torch.int32)
 
 with torch.inference_mode():
-    torch.onnx.export(model, input_ids, "model.onnx", input_names=["input_ids"])
+    export_path = "model.onnx"
+
+    torch.onnx.export(
+        model,
+        input_ids,
+        export_path,
+        input_names=["input_ids"],
+        training=torch.onnx.TrainingMode.EVAL,
+        do_constant_folding=True,
+    )
+
+    model_onnx = onnx.load(export_path)
+    onnx.checker.check_model(model_onnx)
+
+    model_onnx, check = onnxsim.simplify(model_onnx)
+    assert check, "onnx simplify failed"
+    onnx.save(model_onnx, export_path)
