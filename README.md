@@ -27,3 +27,4 @@ TODO
 - Be consistent with cuda/cudnn versions etc
 - Should verify correctness in output?
 - For onnx, we need to use a tool to perform optimizations of the graph I think.
+- https://github.com/NVIDIA/TensorRT/blob/main/demo/HuggingFace/notebooks/t5.ipynb seems relevant
