@@ -9,4 +9,4 @@ fi
 
 pushd "$RUN_DIR"
 docker build -t "$RUN_DIR" .
-docker run -it --rm -v $(pwd)/.cache:/home/vscode/.cache --gpus all "$RUN_DIR"
+docker run -it --rm -v $(pwd)/.cache:/home/root/.cache --gpus all "$RUN_DIR"
