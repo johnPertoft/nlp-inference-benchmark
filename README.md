@@ -6,6 +6,7 @@ This repo holds benchmarks for some deep learning inference frameworks for our s
 TODO
 
 ## TODO
+- Some of these require higher CUDA compute capabilities, should denote this somewhere
 - Define some delimitations, e.g. only running on 3080, only using T5 etc
 - Define some common output report format
 - Don't use Bert here

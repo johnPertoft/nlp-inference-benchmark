@@ -9,12 +9,13 @@ from transformers import AutoTokenizer
 # default cache size needs to be increased to store the many graphs with generative models
 torchdynamo.config.cache_size_limit = 512
 
-# TODO: Change the model size
-model_name = "t5-small"
+# TODO: Change the model size when it's working
+model_name = "t5-large"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 model = model.eval().cuda()
 
+# TODO: Try with longer input too
 inputs = tokenizer(
     "translate English to German: The house in the woods is wonderful, can we buy it?",
     return_tensors="pt",
