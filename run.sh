@@ -9,4 +9,5 @@ fi
 
 pushd "$RUN_DIR"
 docker build -t "$RUN_DIR" .
-docker run -it --rm -v $(pwd)/.cache:/root/.cache --gpus all "$RUN_DIR"
+mkdir -p /tmp/.cache
+docker run -it --rm -v /tmp/.cache:/root/.cache --gpus all "$RUN_DIR"
